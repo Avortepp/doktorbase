@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Registrace uživatele</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Registrace uživatele</h1>
+      <form action="/user_register" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="account">Účet:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="account"
+            name="account"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Heslo:</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="city">Město:</label>
+          <select class="form-control" id="city" name="city">
+            <option value="city1">City 1</option>
+            <option value="city2">City 2</option>
+            <!-- Добавьте другие города по мере необходимости -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="birthdate">Datum narození:</label>
+          <input
+            type="date"
+            class="form-control"
+            id="birthdate"
+            name="birthdate"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="user_photo">Nahrát fotografii:</label>
+          <input
+            type="file"
+            class="form-control-file"
+            id="user_photo"
+            name="user_photo"
+            accept="image/*"
+          />
+        </div>
+
+        <div class="form-group">
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="find_doctor"
+              name="find_doctor"
+            />
+            <label class="form-check-label" for="find_doctor"
+              >Hledáte lékaře</label
+            >
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Zaregistrujte se</button>
+      </form>
+    </div>
+
+    <!-- Подключение Bootstrap JS с CDN (необходимо, если используются компоненты, требующие JS) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

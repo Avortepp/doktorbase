@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Vyberte typ registrace</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        position: relative;
+        min-height: 100vh;
+      }
+
+      .bg-light {
+        background-color: #f8f9fa !important;
+      }
+
+      .container {
+        padding-bottom: 10%;
+      }
+
+      .bottom-right-image {
+        position: absolute;
+        bottom: 50px;
+        right: 50px;
+        max-width: 60%;
+        max-height: 60%;
+      }
+
+      .login-form {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div class="container mt-5">
+      <h1 class="mb-4">Vyberte typ registrace</h1>
+
+      <div class="form-group">
+        <a class="btn btn-primary" href="/doctor_register">
+          Registrace lékaře
+        </a>
+      </div>
+
+      <div class="form-group">
+        <a class="btn btn-primary" href="/user_register">
+          Registrace uživatele
+        </a>
+      </div>
+
+      <div class="form-group">
+        <button
+          type="button"
+          class="btn btn-success"
+          name="login_type"
+          value="login"
+          onclick="showRegistrationForm('loginForm', 'login')"
+        >
+          Přihlaste se ke svému účtu
+        </button>
+      </div>
+
+      <!-- Форма входа в аккаунт -->
+      <div class="mt-4 login-form" id="loginForm" style="display: none">
+        <form action="/login" method="post">
+          <div class="form-group">
+            <label for="login_email">E-mail:</label>
+            <input type="text" id="login_email" name="login_email" required />
+          </div>
+          <div class="form-group">
+            <label for="login_password">Heslo:</label>
+            <input
+              type="password"
+              id="login_password"
+              name="login_password"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-success">Přihlásit se</button>
+        </form>
+      </div>
+    </div>
+
+    <img src="static/doktor.png" alt="Image" class="bottom-right-image" />
+
+    <!-- Подключение Bootstrap JS с CDN (необходимо, если используются компоненты, требующие JS) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+      function showRegistrationForm(formId, registrationType) {
+        // Скрыть все формы регистрации
+        document.querySelectorAll(".login-form").forEach(function (form) {
+          form.style.display = "none";
+        });
+
+        // Показать форму входа
+        document.getElementById("loginForm").style.display = "block";
+
+        // Установить правильное значение action для формы регистрации
+        document.getElementById(formId).action =
+          "/" + registrationType + "_register";
+      }
+    </script>
+  </body>
+</html>
